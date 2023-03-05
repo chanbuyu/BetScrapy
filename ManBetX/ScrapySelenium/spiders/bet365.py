@@ -4,6 +4,8 @@ from scrapy.selector import Selector
 from ScrapySelenium.items import ScrapyseleniumItem
 from datetime import datetime
 import time
+from selenium.webdriver.common.by import By
+
 
 def remove_newlines(text):
     return text.replace('\n', '').replace(' ', '')
@@ -32,10 +34,21 @@ class Bet365Spider(scrapy.Spider):
         # print("切换到iframe中的源代码")
         #print(response.text)
         i = 1
-        num = 5000
+        num = 50000
         while i <= num :
             response = Selector(text=self.driver.page_source)
             print("抓取数据中，还剩下如下次数：", num - i)
+            if i % 2 == 0:
+                # 选择篮球赛事
+                selenium_TodayGames = self.driver.find_element(By.CLASS_NAME, 'eventlist_asia_fe_EventListSection_container')
+                selenium_LeagueItems = selenium_TodayGames.find_elements(By.CLASS_NAME, 'eventlist_asia_fe_EventListLeague_container')
+                for league in selenium_LeagueItems:
+                    selenium_games = league.find_elements(By.CLASS_NAME, 'eventlist_asia_fe_EventListLeague_singleEvent')
+                    #print("selenium_games:", len(selenium_games))
+                    if len(selenium_games) == 0:
+                        league.find_element(By.CLASS_NAME, 'eventlist_asia_fe_EventListLeague_expandCollapse').click()
+                        time.sleep(1)
+                print("已刷新篮球数据")
             time.sleep(5)
             i += 1
             # 今日滚球部分

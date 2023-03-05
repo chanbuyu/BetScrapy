@@ -558,3 +558,41 @@ console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1
 console.error: (new TypeError("lazy.AsyncShutdown.profileBeforeChange is undefined", "resource://services-settings/Database.jsm", 603))
 1677823566455	Marionette	INFO	Stopped listening on port 57788
 Dynamically enable window occlusion 1
+1677988092292	geckodriver	INFO	Listening on 127.0.0.1:65300
+1677988095343	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "65301" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileAGNrNu"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1677988095708	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1677988095712	Marionette	INFO	Listening on port 65311
+Read port: 65311
+WebDriver BiDi listening on ws://127.0.0.1:65301
+1677988095830	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileAGNrNu\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:65301/devtools/browser/76b5b02a-85f7-4f74-bf46-ab5932202f4a
+1677988100812	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://cs.manbetxhbc.com/chatserver/livechat.ashx?siteId=100017501, line 17: TypeError: document.body is null
+JavaScript error: https://www.ryellpcxqmlh7jl.com/e2rum.min.js, line 4: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://cs.manbetxhbc.com/chatserver/livechat.ashx?siteId=100017501, line 17: TypeError: document.body is null
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+console.error: (new TypeError("lazy.AsyncShutdown.profileBeforeChange is undefined", "resource://services-settings/Database.jsm", 603))
+1677989786404	geckodriver	INFO	Listening on 127.0.0.1:50225
+1677989789452	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50226" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileXez317"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1677989789697	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1677989789700	Marionette	INFO	Listening on port 50233
+WebDriver BiDi listening on ws://127.0.0.1:50226
+Read port: 50233
+1677989789909	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\rust_mozprofileXez317\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50226/devtools/browser/f4c420f3-1b15-4000-a377-83eb843f3683
+1677989796746	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://cs.manbetxhbc.com/chatserver/livechat.ashx?siteId=100017501, line 17: TypeError: document.body is null
+JavaScript error: https://www.ryellpcxqmlh7jl.com/e2rum.min.js, line 4: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://cs.manbetxhbc.com/chatserver/livechat.ashx?siteId=100017501, line 17: TypeError: document.body is null
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+console.error: (new TypeError("lazy.AsyncShutdown.profileBeforeChange is undefined", "resource://services-settings/Database.jsm", 603))
