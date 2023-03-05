@@ -55,6 +55,9 @@ class Shot:
         try:
             if self.time_is_match(data_manbetx, data_shaba):
                 if data_manbetx['BIGSMALL'] >= data_shaba['BIGSMALL'] + 3 or data_manbetx['BIGSMALL'] <= data_shaba['BIGSMALL'] - 3:
+                    if data_manbetx['BIGSMALL'] >= data_shaba['BIGSMALL'] + 10 or data_manbetx['BIGSMALL'] <= data_shaba[
+                        'BIGSMALL'] - 10:
+                        return False
                     playsound.playsound('Alarm01.wav')
                     print("机会出现！！！！")
                     print('双方主队名称为：', data_manbetx['HOST'], data_shaba['HOST'])
