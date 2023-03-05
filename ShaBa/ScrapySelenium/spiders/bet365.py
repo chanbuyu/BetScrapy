@@ -4,6 +4,7 @@ from scrapy.selector import Selector
 from ScrapySelenium.items import ScrapyseleniumItem
 from datetime import datetime
 import time
+from selenium.webdriver.common.by import By
 
 def remove_newlines(text):
     return text.replace('\n', '').replace(' ', '')
@@ -27,10 +28,14 @@ class Bet365Spider(scrapy.Spider):
 
     def parse(self, response):
         i = 1
-        num = 5000
+        num = 50000
         while i <= num:
             response = Selector(text=self.driver.page_source)
             print("抓取数据中，还剩下如下次数：", num - i)
+            if i % 10 == 0:
+                # 选择篮球赛事
+                self.driver.find_elements(By.CLASS_NAME, 'c-side-nav__item')[0].click()
+                print("已刷新篮球数据")
             time.sleep(5)
             i += 1
             # 今日滚球部分
