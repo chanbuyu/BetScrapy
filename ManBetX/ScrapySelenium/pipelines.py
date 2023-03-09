@@ -37,13 +37,17 @@ class ScrapyseleniumPipeline:
     def process_item(self, item, spider):
         # print('正在调用process_item.....')
         sql = '''
-            INSERT INTO manbetx (time, league, host, guest, gametime, hostscore, guestscore, bigsmall, bigodds, smallodds) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        '''
-        values = (item['time'], item['league'], item['host'], item['guest'], item['gameTime'], item['hostScore'], item['guestScore'], item['bigSmall'], item['bigOdds'], item['smallOdds'])
+                    INSERT INTO manbetx (time, league, host, guest, quarter, gametime, hostscore, guestscore, bigsmall, bigodds, smallodds, firstQuarter, firstHalf, thirdQuarter) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                '''
+        values = (
+        item['time'], item['league'], item['host'], item['guest'], item['quarter'], item['gameTime'], item['hostScore'],
+        item['guestScore'], item['bigSmall'], item['bigOdds'], item['smallOdds'], item['firstQuarter'],
+        item['firstHalf'], item['thirdQuarter'])
         try:
             self.cursor.execute(sql, values)
             self.conn.commit()
-            #print('插入数据库成功！！！！！！！！！！')
+            # print('插入数据库成功！！！！！！！！！！')
+
         except:
             self.conn.rollback()
             raise DropItem('Failed to insert item into database')

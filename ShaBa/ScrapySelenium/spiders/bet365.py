@@ -97,12 +97,16 @@ class Bet365Spider(scrapy.Spider):
                                 'league': league_name,
                                 'host': remove_newlines(teamNames[0].css("span::text").get()),
                                 'guest': remove_newlines(teamNames[1].css("span::text").get()),
+                                'quarter': None,
                                 'gameTime': game_time.css("::text").get(),
                                 'hostScore': float(score_text[0].css("span::text").get()),
                                 'guestScore': float(score_text[2].css("span::text").get()),
                                 'bigSmall': float(odds_text_wrap),
                                 'bigOdds': float(remove_newlines(bigOdds)),
-                                'smallOdds': float(remove_newlines(smallOdds))
+                                'smallOdds': float(remove_newlines(smallOdds)),
+                                'firstQuarter': None,
+                                'firstHalf': None,
+                                'thirdQuarter': None,
                             }
             #
                         except:

@@ -88,7 +88,7 @@ class ScrapyseleniumDownloaderMiddleware:
             time.sleep(5)
             print('已加载完成。。。需要手动登录，此处暂停60秒')
             i = 0
-            while i <= 15:
+            while i <= 1:
                 print(i)
                 i += 1
                 time.sleep(3)

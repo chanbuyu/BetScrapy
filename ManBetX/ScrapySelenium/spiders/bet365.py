@@ -17,12 +17,12 @@ class Bet365Spider(scrapy.Spider):
 
     def __init__(self):
         super(Bet365Spider, self).__init__()
-        # options = webdriver.ChromeOptions()
-        # options.add_argument('headless')
-        # #options.add_argument('--disable-gpu')
-        # options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
-        # self.driver = webdriver.Chrome(chrome_options=options)
-        self.driver = webdriver.Firefox()
+        options = webdriver.ChromeOptions()
+        options.add_argument('headless')
+        #options.add_argument('--disable-gpu')
+        options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+        self.driver = webdriver.Chrome(chrome_options=options)
+        #self.driver = webdriver.Firefox()
 
     def close(self, spider):
         self.driver.quit()
@@ -79,9 +79,10 @@ class Bet365Spider(scrapy.Spider):
                             print("主队得分：", score_list)
                             #print("客队得分：", score_text[2].css("span::text").get())
 
-                            # 获取比赛时间，只需要分钟
+                            # 获取比赛时间
                             game_time = score.css(".eventlist_asia_fe_EventTime_gameProgress").css("span")
-                            print(game_time.extract())
+                            # print(game_time.extract())
+                            print(game_time[0].css("span::text").get())
                             print(game_time[1].css("span::text").get())
 
                             # 获取多个盘口
@@ -115,12 +116,16 @@ class Bet365Spider(scrapy.Spider):
                                 'league' : league_name,
                                 'host' : remove_newlines(teamNames[0].css("span::text").get()),
                                 'guest' : remove_newlines(teamNames[1].css("span::text").get()),
+                                'quarter': game_time[0].css("span::text").get(),
                                 'gameTime':  game_time[1].css("span::text").get(),
                                 'hostScore': float(score_list[0]),
                                 'guestScore': float(score_list[1]),
                                 'bigSmall' : float(odds_text_wrap),
                                 'bigOdds' : float(remove_newlines(bigOdds)),
-                                'smallOdds' : float(remove_newlines(smallOdds))
+                                'smallOdds' : float(remove_newlines(smallOdds)),
+                                'firstQuarter': None,
+                                'firstHalf': None,
+                                'thirdQuarter': None,
                             }
 
                         except:
